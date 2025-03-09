@@ -1,32 +1,45 @@
-# Prerequisites
-*.d
+# Ignore build directories
+cmake-build-*/
 
-# Compiled Object files
-*.slo
-*.lo
+# Ignore CMake cache and temporary files
+CMakeCache.txt
+CMakeFiles/
+Makefile
+CMakeLists.txt.user
+cmake_install.cmake
+CTestTestfile.cmake
+
+# Ignore compiled object files
 *.o
 *.obj
+*.lo
+*.la
+*.lai
+*.slo
+*.Plo
 
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
+# Ignore shared/static libraries and binaries
 *.so
 *.dylib
 *.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
 *.lib
-
-# Executables
+*.a
 *.exe
-*.out
-*.app
+
+# Ignore CLion & JetBrains IDE files
+.idea/
+*.iml
+.vscode/
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Ignore Windows system files
+Thumbs.db
+.DS_Store
+
+# Ignore Git metadata for submodules
+.git/modules/
