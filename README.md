@@ -10,9 +10,16 @@ RouteOptimizationAPI is a C++ library designed to compute optimal routes from a 
 ### **1️⃣ Clone the Repository**
 ```sh
 git clone https://github.com/DocKingSchultz/RouteOptimizationAPI.git
+```
+### **2️⃣ Build the Project**
+```sh
 cd RouteOptimizationAPI
 cmake -B cmake-build-debug-mingw .
 mingw32-make -C cmake-build-debug-mingw
-./cmake-build-debug-mingw/TestApp.exe  # Windows
+```
 
+**3️⃣ Run the Executable**
+```sh
+./cmake-build-debug-mingw/TestApp.exe  # Windows
+```
 
