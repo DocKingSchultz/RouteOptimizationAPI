@@ -1,18 +1,27 @@
-cmake_minimum_required(VERSION 3.30)
+cmake_minimum_required(VERSION 3.18)
 project(RouteOptimizationAPI)
 
 set(CMAKE_CXX_STANDARD 17)
 
-# Define the shared library (only .cpp files)
-add_library(RouteOptimizationAPI SHARED src/dist_calculator.cpp)
+# Set Android NDK path
+set(ANDROID_NDK "C:/Users/jf160343d/AppData/Local/Android/Sdk/ndk/29.0.13113456")
 
-target_include_directories(RouteOptimizationAPI PUBLIC
+# Include directories for JNI and project headers
+include_directories(
+        ${ANDROID_NDK}/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include
         ${CMAKE_SOURCE_DIR}/include
-        ${CMAKE_SOURCE_DIR}/src
 )
 
-# Define an executable for testing
-add_executable(TestApp src/main.cpp)
+# Add library
+add_library(RouteOptimizationAPI SHARED
+        src/dist_calculator.cpp
+        jni/utils/JTypeConverter.cpp
+        jni/utils/JTypeConverter.h
+        jni/jni_bridge.cpp
+        jni/jni_bridge.h
+)
 
-# Link the executable with the shared library
-target_link_libraries(TestApp PRIVATE RouteOptimizationAPI)
+target_link_libraries(RouteOptimizationAPI
+        android
+        log
+)
